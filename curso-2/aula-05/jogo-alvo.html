@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+	
+<html>
+<head>
+
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+
+</body>
+<script>
+	/* Jogo de tiro ao alvo */ 
+
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+//
+// Criação do alvo aleatório
+//
+	var xMin = 55;
+	var xMax = 545;
+	var yMin = 55;
+	var yMax = 345;
+
+	
+
+	function desenhaCirculo(xAlvo, yAlvo, raio, cor){		
+
+		tinta.fillStyle = cor;
+		tinta.beginPath();
+		tinta.arc(xAlvo, yAlvo, raio, 0, 2 * Math.PI);
+		tinta.fill();
+	}
+
+	function desenhaAlvo(){
+		var xAlvo = Math.random() * (xMax - xMin) + xMin; 
+		var yAlvo = Math.random() * (yMax - yMin) +  yMin;
+
+		desenhaCirculo(xAlvo, yAlvo, 50, 'red');
+		desenhaCirculo(xAlvo, yAlvo, 40, 'white');
+		desenhaCirculo(xAlvo, yAlvo, 30, 'red');
+		desenhaCirculo(xAlvo, yAlvo, 20, 'white');
+		desenhaCirculo(xAlvo, yAlvo, 10,'red');
+		desenhaCirculo(xAlvo, yAlvo, 5,'white');
+		desenhaCirculo(xAlvo, yAlvo, 3,'red');		
+		
+		retorno = [xAlvo, yAlvo];
+		
+		return retorno;
+	}
+
+	function atualizaTela(){
+		tinta.clearRect(0, 0, 600, 400);
+		desenhaAlvo();
+	}
+
+	setInterval(atualizaTela, 8000);	
+
+// Fim de alvo Aleatório
+// 
+// Lógica de acerto \\
+	desenhaAlvo()
+
+tela.onclick = function(event){
+	var x = event.pageX - tela.offsetLeft;
+	var y = event.pageY - tela.offsetTop;
+
+	//x = 536  y = 156 retorno[0] = 535.343  retorno[1] ==156.0757
+	if (x >= retorno[0] - 5 && x <=  retorno[0] + 5){
+		if (y > retorno[1] - 5  && y <= retorno[1] + 5){
+			alert('Acertou!');
+		}
+	}	
+	}
+
+
+</script>
+</html>
