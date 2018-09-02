@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	tinta.fillStyle = 'green';
+	tinta.fillRect(0, 0, 600, 400);
+
+	tinta.fillStyle = 'yellow';
+	tinta.beginPath();
+	tinta.moveTo(50, 200);
+	tinta.lineTo(300, 50);
+	tinta.lineTo(550, 200);
+	tinta.lineTo(300, 350);
+	tinta.fill();
+
+	tinta.fillStyle = 'blue';
+	tinta.beginPath();
+	tinta.arc(300, 200, 80, 0, 2*Math.PI);
+	tinta.fill();
+
+</script>
+</html>

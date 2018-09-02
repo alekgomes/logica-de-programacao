@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<h2>Uso de diferentes navegadores pelos alunos da Alura</h2>
+	<canvas width="600" height="400"></canvas>
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	var serie2015 = [50, 25, 20, 5];
+	var serie2016 = [65, 20, 13, 2];
+
+	var cores = ['blue', 'green', 'yellow', 'red'];
+	var nomes = ['Gloogle Chrome', 'FireFox', 'Safari', 'Outros'];
+
+	function desenhaRetangulo(x, y, largura, altura, cor){
+		tinta.fillStyle = cor;
+		tinta.fillRect(x, y, largura, altura);
+		tinta.strokeRect(x, y, largura, altura);
+	}
+
+	function desenhaTexto(x, y, texto) {
+    	tinta.font='15px Georgia';
+        tinta.fillText(texto, x, y);    
+    }
+
+	function desenhaBarra(x, y, serie, cores, texto){
+		for(var i = 0; i < cores.length; i++){
+			desenhaRetangulo(x, y, 40, serie[i], cores[i]);
+			y = y + serie[i];			
+		}
+		desenhaTexto(x, 180, texto);
+	}
+
+	function desenhaIndice(x, y, nomes, cores){
+		for(var i = 0; i < cores.length; i++){
+			desenhaRetangulo(x, y, 15, 15, cores[i]);
+			desenhaTexto(x + 25, y + 10, nomes[i]);	
+			y = y + 25;		
+		}
+		
+	}
+
+desenhaBarra(50, 50, serie2015, cores, '2015');
+desenhaBarra(150, 50, serie2016, cores, '2016');
+desenhaIndice(220, 50, nomes, cores);
+
+</script>
+</html>

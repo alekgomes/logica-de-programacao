@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<canvas width="350" height="300"></canvas>
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	function desenhaRect(x, y, tamanhoX, tamanhoY, cor){
+		tinta.fillStyle = cor;
+		tinta.fillRect(x, y, tamanhoX, tamanhoY);		
+	}
+
+	desenhaRect(0, 0, 350, 300, 'darkgreen');
+	desenhaRect(50, 50, 90, 90, 'black');
+	desenhaRect(210, 50, 90, 90, 'black');
+	desenhaRect(140, 140, 70, 100, 'black');
+	desenhaRect(100, 190, 40, 110, 'black');
+	desenhaRect(210, 190, 40, 110, 'black');
+
+</script>
+</html>

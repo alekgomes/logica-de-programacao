@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>	
+	<canvas width="600" height="400"></canvas>
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	function desenhaBola(raio){
+		tinta.fillStyle = 'blue';
+		tinta.beginPath();
+		tinta.arc(300, 200, raio, 0, 2 * Math.PI);
+		tinta.fill();
+	}
+
+	function limpaTela(){
+		tinta.clearRect(0, 0, 600, 400);
+	}
+
+	var raio = 20;
+	var sentido = 1;
+	function atualizaTela(){
+		limpaTela();
+		if (raio == 30){
+			sentido = - sentido;
+		}
+		else if (raio == 20){
+			sentido = 1;
+		}
+		desenhaBola(raio);
+		raio = raio + sentido
+	}
+	setInterval(atualizaTela, 25);
+</script>
+</html>

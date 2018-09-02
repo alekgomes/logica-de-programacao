@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>	
+	<canvas width="600" height="400"></canvas>
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	tinta.fillStyle = 'lightgrey';
+	tinta.fillRect(0, 0, 600, 400);
+
+	function desenhaBola(x, y, raio){
+		tinta.fillStyle = 'blue';
+		tinta.beginPath();
+		tinta.arc(x, y, raio, 0, 2* Math.PI);
+		tinta.fill();
+	}
+
+	function limpaTela(){
+		tinta.clearRect(0, 0, 600, 400);
+	}
+
+	var x = 20;
+	function atualizaTela(){
+		limpaTela();
+		desenhaBola(x, 20, 10);
+		x++;
+	}
+	setInterval(atualizaTela, 20);
+</script>
+</html>

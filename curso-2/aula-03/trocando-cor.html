@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	tinta.fillStyle = 'lightgrey';
+	tinta.fillRect (0, 0, 600, 400);
+
+	var cores    = ['blue', 'red', 'green'];
+	var corAtual = 0;
+
+	function desenhaBola(evento){
+		var x = evento.pageX - tela.offsetLeft;
+		var y = evento.pageY - tela.offsetTop;
+
+		tinta.fillStyle = cores[corAtual];
+		tinta.beginPath();
+		tinta.arc(x, y, 8, 0, 2 * Math.PI);
+		tinta.fill();
+	}
+	
+	function trocaCor(){
+		if (corAtual == 2){
+			corAtual = 0;
+		}else{
+			corAtual++;			
+		}
+		// mostra cor selecinada
+		tinta.fillStyle = cores[corAtual];
+		tinta.beginPath();
+		tinta.arc(100, 100, 8, 0, 2 * Math.PI);
+		tinta.fill();
+		tinta.font = '15px Georgia';
+    	tinta.fillText('Cor selecinada: ', 20, 80);
+		return false;
+	}
+
+
+   	tinta.font = '15px Georgia';
+    tinta.fillText('Cor selecinada: ', 80, 100);
+
+	tela.onclick       = desenhaBola;
+	tela.oncontextmenu = trocaCor;
+
+</script>
+</html>

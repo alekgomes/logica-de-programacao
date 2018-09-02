@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<script>
+	var meuPeso     = 82;
+	var minhaAltura = 1.8;
+	var pesoAmigo   = 90;
+	var alturaAmigo = 1.87;
+
+	function pulaLinha(){
+		document.write("<br>");
+	}
+
+	function mostra(conteudo){
+		document.write(conteudo);
+		pulaLinha();
+	}
+
+	function calculaImc(peso, altura){
+		var imc = peso / (altura * altura);
+		return imc
+	}
+
+	mostra(calculaImc(meuPeso, minhaAltura));
+	mostra(calculaImc(pesoAmigo, alturaAmigo));
+
+</script>
+</html>

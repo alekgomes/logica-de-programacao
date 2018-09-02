@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	function desenhaCirculo(x, y, cor){
+		tinta.fillStyle = cor;
+		tinta.beginPath();
+		tinta.arc(x, y, 25, 0, Math.PI * 2);
+		tinta.fill();
+	}
+
+	desenhaCirculo(300, 200, 'red');
+	desenhaCirculo(350, 200, 'black');
+	desenhaCirculo(250, 200, 'orange');
+	desenhaCirculo(300, 150, 'yellow');
+	desenhaCirculo(300, 250, 'blue');
+
+	
+</script>
+</html>

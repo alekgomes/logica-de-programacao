@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>	
+	<canvas width="600" height="400"></canvas>
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	var x = 300;
+	var y = 200;
+
+	var esquerda = 37;
+	var cima     = 38;
+	var direta   = 39;
+	var baixo    = 40;
+
+	function desenhaBola(x, y){
+		tinta.fillStyle = 'blue';
+        tinta.beginPath();
+        tinta.arc(x, y, 10, 0, 2 * Math.PI);
+        tinta.fill();
+	}
+	
+	function limpaTela() {
+        tinta.clearRect(0, 0, 600, 400);
+    }
+
+    function atualizaTela() {
+        limpaTela();
+        desenhaBola(x, y, 10);
+    }
+
+    setInterval(atualizaTela, 10);
+
+    document.onkeydown = function(event){
+    	if(event.keyCode == esquerda){
+    		x = x-2;
+    	}
+    	else if (event.keyCode == direta){
+    		x = x + 2;
+    	}
+    	else if (event.keyCode == cima){
+    		y = y - 2;
+    	}
+    	else if (event.keyCode == baixo){
+    		y = y + 2;
+    	}
+    };
+
+</script>
+</html>

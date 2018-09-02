@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+</body>
+<script>
+	var tela  = document.querySelector('canvas');
+	var tinta = tela.getContext('2d');
+
+	tinta.beginPath();
+	tinta.moveTo(50, 50);
+	tinta.lineTo(50, 400);
+	tinta.lineTo(400, 400);
+	tinta.fill();
+
+	tinta.fillStyle = 'white';
+	tinta.beginPath();
+	tinta.moveTo(100, 175);
+	tinta.lineTo(100,350);
+	tinta.lineTo(275, 350);
+	tinta.fill();
+
+</script>
+</html>
